@@ -7,6 +7,8 @@
 
 #import "AppDelegate.h"
 
+#import "Parse/Parse.h"
+
 @interface AppDelegate ()
 
 @end
@@ -15,6 +17,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+
+        configuration.applicationId = @"3uFiyvvJ2JEMGd92eFGPuQvkZ555DOjraAge89Gv"; // <- Mutable
+        configuration.clientKey = @"wsuvj7QIGpZ1rNGRGDEKvgf0KCdOrz4iSRNDlria"; // <- Mutable
+        configuration.server = @"https://parseapi.back4app.com";
+    }];
+
+    [Parse initializeWithConfiguration:config];
+    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+    gameScore[@"score"] = @1337;
+    gameScore[@"playerName"] = @"Sean Plott";
+    gameScore[@"cheatMode"] = @NO;
+    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+     if (succeeded) {
+            NSLog(@"Object saved!");
+     } else {
+            NSLog(@"Error: %@", error.description);
+     }
+    }];
     // Override point for customization after application launch.
     return YES;
 }
