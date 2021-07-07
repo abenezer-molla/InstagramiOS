@@ -145,7 +145,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="FsF-cT-HWD">
-                        <barButtonItem key="leftBarButtonItem" title="Cancle" id="f2k-9q-GJk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancle" id="f2k-9q-GJk">
+                            <connections>
+                                <action selector="cancleComposeTap:" destination="2qX-PB-iuZ" id="ylC-Ib-12V"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="qva-x3-3xc"/>
                     </navigationItem>
                 </viewController>
