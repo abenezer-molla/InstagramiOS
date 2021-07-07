@@ -18,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // Code to initialize Parse
+    // (See above section 'Parse `initializeWithConfiguration` vs `setApplicationId`', if you have not already set it up)
+
+    
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
 
         configuration.applicationId = @"3uFiyvvJ2JEMGd92eFGPuQvkZ555DOjraAge89Gv"; // <- Mutable
@@ -37,6 +41,16 @@
             NSLog(@"Error: %@", error.description);
      }
     }];
+    
+
+    
+//
+//    if (PFUser.currentUser) {
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//
+//        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"AuthenticatedViewController"];
+//    }
+
     // Override point for customization after application launch.
     return YES;
 }
