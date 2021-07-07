@@ -15,7 +15,6 @@
 		291090BC2694F89000BD4DCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 291090BB2694F89000BD4DCD /* main.m */; };
 		291090C62694F89000BD4DCD /* InstagramAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291090C52694F89000BD4DCD /* InstagramAppTests.m */; };
 		291090D12694F89000BD4DCD /* InstagramAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291090D02694F89000BD4DCD /* InstagramAppUITests.m */; };
-		294ACEFA2696195100D80FE7 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 294ACEF92696195100D80FE7 /* PhotoMapViewController.m */; };
 		294ACEFD269621A200D80FE7 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 294ACEFC269621A200D80FE7 /* Post.m */; };
 		29B3AB3226950710006CB17A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B3AB3126950710006CB17A /* LoginViewController.m */; };
 		29B3AB3526951437006CB17A /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B3AB3426951437006CB17A /* FeedViewController.m */; };
@@ -61,8 +60,6 @@
 		291090CC2694F89000BD4DCD /* InstagramAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		291090D02694F89000BD4DCD /* InstagramAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramAppUITests.m; sourceTree = "<group>"; };
 		291090D22694F89000BD4DCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		294ACEF82696195100D80FE7 /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
-		294ACEF92696195100D80FE7 /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
 		294ACEFB269621A200D80FE7 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		294ACEFC269621A200D80FE7 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		29B3AB3026950710006CB17A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -153,8 +150,6 @@
 				29B3AB3A26951921006CB17A /* FeedCell.m */,
 				29B3AB3F26957EE1006CB17A /* ComposeViewController.h */,
 				29B3AB4026957EE1006CB17A /* ComposeViewController.m */,
-				294ACEF82696195100D80FE7 /* PhotoMapViewController.h */,
-				294ACEF92696195100D80FE7 /* PhotoMapViewController.m */,
 				294ACEFB269621A200D80FE7 /* Post.h */,
 				294ACEFC269621A200D80FE7 /* Post.m */,
 			);
@@ -441,7 +436,6 @@
 			files = (
 				291090AB2694F88E00BD4DCD /* AppDelegate.m in Sources */,
 				29B3AB3526951437006CB17A /* FeedViewController.m in Sources */,
-				294ACEFA2696195100D80FE7 /* PhotoMapViewController.m in Sources */,
 				29B3AB3B26951921006CB17A /* FeedCell.m in Sources */,
 				294ACEFD269621A200D80FE7 /* Post.m in Sources */,
 				291090BC2694F89000BD4DCD /* main.m in Sources */,

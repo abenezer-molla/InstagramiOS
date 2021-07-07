@@ -12,7 +12,11 @@
 #import "SceneDelegate.h"
 #import "FeedViewController.h"
 
+#import "Post.h"
+
 @interface ComposeViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *captionOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *selectImageOutlet;
 
 @end
 
@@ -35,6 +39,81 @@
         FeedViewController *feedViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         myDelegate.window.rootViewController = feedViewController;
 }
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (IBAction)shareComposeTap:(id)sender {
+    
+    [Post postUserImage:self.selectImageOutlet.currentImage withCaption:self.captionOutlet.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    }];
+    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+        SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+        // Logging out and swtiching to login view controller
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        FeedViewController *feedViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        myDelegate.window.rootViewController = feedViewController;
+ 
+    
+    
+    
+    
+//
+//    PFObject *chatMessage = [PFObject objectWithClassName:@"Message_FBU2021"];
+//    chatMessage[@"text"] = self.textField.text;
+//    chatMessage[@"user"] = PFUser.currentUser;
+//    [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+//        if (succeeded) {
+//            NSLog(@"The message was saved!");
+//        } else {
+//            NSLog(@"Problem saving message: %@", error.localizedDescription);
+//        }
+//    }];
+//    self.textField.text = @"";
+}
+
+
+- (IBAction)selectImageAction:(id)sender {
+    
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+    
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    
+    UIImage *tempImage  = [self resizeImage:editedImage withSize:CGSizeMake(100, 100)];
+
+    // Do something with the images (based on your use case)
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+    
+
+
+
 
 /*
 #pragma mark - Navigation

@@ -141,6 +141,30 @@
                     <view key="view" contentMode="scaleToFill" id="lcY-Th-Wrq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write a caption" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8kZ-PU-7uo">
+                                <rect key="frame" x="171" y="91" width="206" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTK-j3-x3v">
+                                <rect key="frame" x="34" y="196" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="select Image"/>
+                                <connections>
+                                    <action selector="selectImageAction:" destination="2qX-PB-iuZ" eventType="touchUpInside" id="tDJ-Sr-zHx"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Ya-eG-7n3">
+                                <rect key="frame" x="20" y="69" width="135" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DoI-Ek-05h" appends="YES" id="Nah-OY-Tj6"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b00-9k-YEI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -150,10 +174,19 @@
                                 <action selector="cancleComposeTap:" destination="2qX-PB-iuZ" id="ylC-Ib-12V"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="qva-x3-3xc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="qva-x3-3xc">
+                            <connections>
+                                <action selector="shareComposeTap:" destination="2qX-PB-iuZ" id="o1s-cy-Lgz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="captionOutlet" destination="8kZ-PU-7uo" id="Ipr-B1-JW8"/>
+                        <outlet property="selectImageOutlet" destination="dTK-j3-x3v" id="5ib-OA-Tby"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdR-Rn-WDr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DoI-Ek-05h"/>
             </objects>
             <point key="canvasLocation" x="3657.971014492754" y="81.696428571428569"/>
         </scene>
@@ -183,10 +216,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_tab" highlightedImage="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-WH-TZh">
-                                <rect key="frame" x="5" y="110" width="146" height="129"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvR-c5-UYF">
+                                <rect key="frame" x="25" y="332" width="364" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Abenezer Molla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fv-w7-hMR">
                                 <rect key="frame" x="14" y="260" width="141" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -236,13 +272,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvR-c5-UYF">
-                                <rect key="frame" x="25" y="332" width="364" height="31"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill.badge.questionmark" catalog="system" highlightedImage="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-WH-TZh">
+                                <rect key="frame" x="4.5" y="92" width="146" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pGa-yx-Oq0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -253,11 +286,11 @@
             </objects>
             <point key="canvasLocation" x="3297.1014492753625" y="-636.16071428571422"/>
         </scene>
-        <!--Item-->
+        <!--Feed-->
         <scene sceneID="LzE-i5-owo">
             <objects>
-                <navigationController storyboardIdentifier="FeedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="XUe-TA-FI1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="t8c-NF-TMb"/>
+                <navigationController storyboardIdentifier="FeedNavigationController" title="Feed" automaticallyAdjustsScrollViewInsets="NO" id="XUe-TA-FI1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="feed_tab" selectedImage="feed_tab" id="t8c-NF-TMb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XNk-Jg-iAn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -290,11 +323,11 @@
             </objects>
             <point key="canvasLocation" x="2747.826086956522" y="81.696428571428569"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="Mn6-vK-5dj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CDI-L7-Kaa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="66H-ZE-yA4"/>
+                <navigationController title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="CDI-L7-Kaa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="66H-ZE-yA4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="561-Zc-Ovi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -311,7 +344,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
+        <image name="person.crop.circle.fill.badge.questionmark" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="profile_tab" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
