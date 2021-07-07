@@ -18,7 +18,7 @@
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSArray *chats;
+@property (strong, nonatomic) NSArray *feeds;
 
 @end
 
@@ -31,7 +31,9 @@
     
     self.tableView.dataSource = self;
 //
-//    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshData) userInfo:nil repeats:true];
+    
+    [self refreshData];
+   //[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshData) userInfo:nil repeats:true];
     // Do any additional setup after loading the view.
 }
 
@@ -68,43 +70,64 @@
 }
 */
 
+
+- (void)refreshData{
+        
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"username"];
+    //[query whereKey:@"likesCount" greaterThanOrEqualTo:@0];
+    query.limit = 20;
+    [query orderByDescending:@"createdAt"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            
+            self.feeds = posts;
+            [self.tableView reloadData];
+            // do something with the array of object returned by the call
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     FeedCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-    cell.feedCaptionLabel.text = self.chats[indexPath.row][@"text"];
+    cell.feedCaptionLabel.text = self.feeds[indexPath.row][@"text"];
 //    if(self.chats[indexPath.row][@"user"] != nil){
 //        cell.userText.text = self.chats[indexPath.row][@"user"][@"username"];
 //    }else{
 //        cell.userText.text = @"Anon";
 //    }
     
+
+
+        
+    PFUser *user = self.feeds[indexPath.row][@"author"];
+    cell.feedCaptionLabel.text = user.username;
+    //cell.feedImageView.image =
+
+
+    
     return cell;
+
     
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 20;
+    return self.feeds.count;
     
+    //return self.feeds.count;
 }
 
-//- (void)refreshData{
-//    // construct query
-//    PFQuery *query = [PFQuery queryWithClassName:@"InstagramiOS"];
-//    [query includeKey:@"user"];
-//    query.limit = 20;
-//    [query orderByDescending:@"createdAt"];
-//    // fetch data asynchronously
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-//        if (posts != nil) {
-//            // do something with the array of object returned by the call
-//            self.chats = posts;
-//            [self.tableView reloadData];
-//        } else {
-//            NSLog(@"%@", error.localizedDescription);
-//        }
-//    }];
-//}
+
+
+
+
 
 
 

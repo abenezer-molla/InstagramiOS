@@ -66,23 +66,9 @@
         FeedViewController *feedViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         myDelegate.window.rootViewController = feedViewController;
  
-    
-    
-    
-    
-//
-//    PFObject *chatMessage = [PFObject objectWithClassName:@"Message_FBU2021"];
-//    chatMessage[@"text"] = self.textField.text;
-//    chatMessage[@"user"] = PFUser.currentUser;
-//    [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-//        if (succeeded) {
-//            NSLog(@"The message was saved!");
-//        } else {
-//            NSLog(@"Problem saving message: %@", error.localizedDescription);
-//        }
-//    }];
-//    self.textField.text = @"";
+
 }
+
 
 
 - (IBAction)selectImageAction:(id)sender {
