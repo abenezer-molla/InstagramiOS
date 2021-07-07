@@ -121,6 +121,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="insta_camera_btn" id="BMx-hn-3sX">
                             <connections>
                                 <action selector="didTapIcon:" destination="h85-1g-y60" id="LhY-IY-epR"/>
+                                <segue destination="KmL-MF-5Th" kind="presentation" id="LG7-s3-xUM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -131,6 +132,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osw-i0-mNu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828.985507246377" y="75"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="NCV-f1-vZ0">
+            <objects>
+                <viewController storyboardIdentifier="ComposeViewController" id="2qX-PB-iuZ" customClass="ComposeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lcY-Th-Wrq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="b00-9k-YEI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FsF-cT-HWD">
+                        <barButtonItem key="leftBarButtonItem" title="Cancle" id="f2k-9q-GJk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="qva-x3-3xc"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UdR-Rn-WDr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3657.971014492754" y="81.696428571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LzE-i5-owo">
@@ -149,6 +169,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzX-eM-ga4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="918.84057971014499" y="75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nrd-bL-9WH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KmL-MF-5Th" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nhc-SU-O9f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2qX-PB-iuZ" kind="relationship" relationship="rootViewController" id="kXF-5c-mec"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5K-kd-wim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2747.826086956522" y="81.696428571428569"/>
         </scene>
     </scenes>
     <resources>
