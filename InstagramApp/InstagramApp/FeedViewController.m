@@ -13,6 +13,8 @@
 
 #import "FeedCell.h"
 
+#import "Post.h"
+
 #import "LoginViewController.h"
 
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -120,13 +122,23 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     FeedCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-    cell.feedCaptionLabel.text = self.feeds[indexPath.row][@"caption"];
+    //cell.feedCaptionLabel.text = self.feeds[indexPath.row][@"caption"];
+ 
+    Post *post = self.feeds[indexPath.row];
+    NSLog(@"%@", post);
+    [cell setPost:post];
+    
+    
+    
+    
+    
+   // cell.feedCaptionLabel.text = self.feeds[self.feeds[indexPath.row][@"caption"]];
 
-   
-    PFUser *user = self.feeds[indexPath.row][@"author"];
-    //cell.feedCaptionLabel.text = user.username;
-    cell.feedUsernameCaption.text = user.username;
-    //cell.photoImageView.file = //self.feeds[indexPath.row][@"image"];
+    
+    
+    
+    //cell.feedImageView.image = 
+    //cell.photoImageView.file = self.feeds[indexPath.row][@"image"];
 
 
     

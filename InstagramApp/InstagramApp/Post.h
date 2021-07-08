@@ -7,6 +7,8 @@
 
 #import <Parse/Parse.h>
 
+#import <Foundation/Foundation.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Post : PFObject<PFSubclassing>
@@ -26,5 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
+//- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+//+ (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries;
 
 NS_ASSUME_NONNULL_END

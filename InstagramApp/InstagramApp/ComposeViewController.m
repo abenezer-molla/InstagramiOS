@@ -17,6 +17,7 @@
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *captionOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *selectImageOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *selectImagePic;
 
 @end
 
@@ -56,7 +57,15 @@
 
 - (IBAction)shareComposeTap:(id)sender {
     
-    [Post postUserImage:self.selectImageOutlet.currentImage withCaption:self.captionOutlet.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.selectImagePic.image withCaption:self.captionOutlet.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        if(succeeded){
+            
+            NSLog(@"Yay");
+        } else{
+            
+            NSLog(@"Nope");
+        }
     }];
     
 //    [self dismissViewControllerAnimated:YES completion:nil];
@@ -86,10 +95,10 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    self.selectImagePic.image = [self resizeImage:editedImage withSize:CGSizeMake(300, 300)];
     
-    UIImage *tempImage  = [self resizeImage:editedImage withSize:CGSizeMake(100, 100)];
+    
 
     // Do something with the images (based on your use case)
     

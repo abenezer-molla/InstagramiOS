@@ -22,16 +22,14 @@
 
 
 - (void)setPost:(Post *)post {
-    _post = post;
-    self.photoImageView.file = post[@"image"];
-    
-    NSLog(@"%@", self.photoImageView.file);
+    NSLog(@"%@", post);
+    //self.post = post;
+    self.photoImageView.file = post.image;
     [self.photoImageView loadInBackground];
+    self.feedCaptionLabel.text = post.caption;
+    PFUser *user = post.author;
+    self.feedUsernameCaption.text = user.username;
 }
-
-
-
-
 
 
 @end
