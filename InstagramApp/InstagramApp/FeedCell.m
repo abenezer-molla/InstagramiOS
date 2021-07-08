@@ -21,6 +21,16 @@
 }
 
 
+- (void)setPost:(Post *)post {
+    _post = post;
+    self.photoImageView.file = post[@"image"];
+    
+    NSLog(@"%@", self.photoImageView.file);
+    [self.photoImageView loadInBackground];
+}
+
+
+
 
 
 

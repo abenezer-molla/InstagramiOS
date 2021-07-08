@@ -121,16 +121,11 @@
     
     FeedCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
     cell.feedCaptionLabel.text = self.feeds[indexPath.row][@"caption"];
-//    if(self.chats[indexPath.row][@"user"] != nil){
-//        cell.userText.text = self.chats[indexPath.row][@"user"][@"username"];
-//    }else{
-//        cell.userText.text = @"Anon";
-//    }
-    
+
    
     PFUser *user = self.feeds[indexPath.row][@"author"];
     //cell.feedCaptionLabel.text = user.username;
-    //cell.feedImageView.image =
+    cell.feedUsernameCaption.text = user.username;
 
 
     

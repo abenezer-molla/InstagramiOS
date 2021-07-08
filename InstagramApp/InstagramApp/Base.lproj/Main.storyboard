@@ -88,15 +88,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqn-gr-eQL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="292"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="gqn-gr-eQL" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-Lx-T7D">
-                                                    <rect key="frame" x="34" y="300" width="360" height="37"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZd-vU-9VR">
+                                                    <rect key="frame" x="20" y="300" width="138" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-Lx-T7D">
+                                                    <rect key="frame" x="166" y="301" width="209" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">Similar to Twitter, don't create a segue from the Sign Up button. You have to create a segue from the view controller, and give it a segue identifier. Then, when the network call succeeds, manually perform the segue.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -104,7 +111,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="feedCaptionLabel" destination="Jhd-Lx-T7D" id="k0U-d5-v1n"/>
-                                            <outlet property="feedImageView" destination="gqn-gr-eQL" id="0x0-a7-JBy"/>
+                                            <outlet property="feedUsernameCaption" destination="mZd-vU-9VR" id="eLh-VQ-yS3"/>
+                                            <outlet property="photoImageView" destination="gqn-gr-eQL" id="9GB-km-sOU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -132,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osw-i0-mNu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828.985507246377" y="75"/>
+            <point key="canvasLocation" x="1937.68115942029" y="97.767857142857139"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="NCV-f1-vZ0">
@@ -321,7 +329,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5K-kd-wim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747.826086956522" y="81.696428571428569"/>
+            <point key="canvasLocation" x="3019" y="98"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Mn6-vK-5dj">
@@ -345,11 +353,12 @@
     </scenes>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
+        <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="person.crop.circle.fill.badge.questionmark" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
-        <image name="profile_tab" width="25" height="25"/>
+        <image name="profile_tab" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
