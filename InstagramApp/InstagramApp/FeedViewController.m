@@ -126,6 +126,7 @@
     PFUser *user = self.feeds[indexPath.row][@"author"];
     //cell.feedCaptionLabel.text = user.username;
     cell.feedUsernameCaption.text = user.username;
+    //cell.photoImageView.file = //self.feeds[indexPath.row][@"image"];
 
 
     
