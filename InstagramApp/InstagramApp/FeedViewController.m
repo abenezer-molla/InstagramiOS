@@ -13,14 +13,20 @@
 
 #import "FeedCell.h"
 
+#import "AppDelegate.h"
+
 #import "Post.h"
 
 #import "LoginViewController.h"
 
+#import "UIImageView+AFNetworking.h"
+
+
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property(copy, readonly) NSURLRequest *request;
 @property (strong, nonatomic) NSArray *feeds;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -28,15 +34,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.refreshControl = [[UIRefreshControl alloc] init];
     
     self.tableView.delegate = self;
     
     self.tableView.dataSource = self;
+    
+    [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+
 //
     
     [self refreshData];
    //[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshData) userInfo:nil repeats:true];
     // Do any additional setup after loading the view.
+}
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+    [self refreshData];
+
+
 }
 
 
@@ -92,6 +110,7 @@
             // do something with the data fetched
                         self.feeds = posts;
                         [self.tableView reloadData];
+                        [self.refreshControl endRefreshing];
         }
         else {
             // handle error
