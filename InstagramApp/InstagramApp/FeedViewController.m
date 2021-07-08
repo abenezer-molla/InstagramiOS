@@ -72,42 +72,64 @@
 
 
 - (void)refreshData{
+    
+    Post *newPost = [Post new];
+
+    // get the current user and assign it to "author" field. "author" field is now of Pointer type
+    newPost.author = [PFUser currentUser];
         
     // construct query
-    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    [query includeKey:@"username"];
-    //[query whereKey:@"likesCount" greaterThanOrEqualTo:@0];
-    query.limit = 20;
-    [query orderByDescending:@"createdAt"];
+    PFQuery *postQuery = [Post query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
 
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            // do something with the data fetched
+                        self.feeds = posts;
+                        [self.tableView reloadData];
+        }
+        else {
+            // handle error
             
-            self.feeds = posts;
-            [self.tableView reloadData];
-            // do something with the array of object returned by the call
-        } else {
-            NSLog(@"%@", error.localizedDescription);
+                        NSLog(@"%@", error.localizedDescription);
         }
     }];
+//
+//    // construct query
+//    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+//    [query includeKey:@"username"];
+//    //[query whereKey:@"likesCount" greaterThanOrEqualTo:@0];
+//    query.limit = 20;
+//    [query orderByDescending:@"createdAt"];
+//
+//    // fetch data asynchronously
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+//        if (posts != nil) {
+//
+
+//            // do something with the array of object returned by the call
+//        } else {
+
+//        }
+//    }];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     FeedCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-    cell.feedCaptionLabel.text = self.feeds[indexPath.row][@"text"];
+    cell.feedCaptionLabel.text = self.feeds[indexPath.row][@"caption"];
 //    if(self.chats[indexPath.row][@"user"] != nil){
 //        cell.userText.text = self.chats[indexPath.row][@"user"][@"username"];
 //    }else{
 //        cell.userText.text = @"Anon";
 //    }
     
-
-
-        
+   
     PFUser *user = self.feeds[indexPath.row][@"author"];
-    cell.feedCaptionLabel.text = user.username;
+    //cell.feedCaptionLabel.text = user.username;
     //cell.feedImageView.image =
 
 
