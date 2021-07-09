@@ -21,6 +21,8 @@
 
 #import "UIImageView+AFNetworking.h"
 
+#import "DetailsViewController.h"
+
 
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -78,17 +80,44 @@
 
 
 - (IBAction)didTapIcon:(id)sender {
+    
+    NSLog(@"ICON");
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"detailsSegue"]) {
+        
+        UITableViewCell *tappedCell = sender;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *insta = self.feeds[indexPath.row];
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        
+        
+        detailsViewController.postDict = insta;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    NSLog(@"Tapping on Insta");
+    
+
+    
 }
-*/
+
 
 
 - (void)refreshData{
@@ -144,7 +173,7 @@
     //cell.feedCaptionLabel.text = self.feeds[indexPath.row][@"caption"];
  
     Post *post = self.feeds[indexPath.row];
-    NSLog(@"%@", post);
+    //NSLog(@"%@", post);
     [cell setPost:post];
     
     

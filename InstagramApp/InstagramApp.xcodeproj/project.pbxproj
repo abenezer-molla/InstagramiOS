@@ -15,6 +15,7 @@
 		291090BC2694F89000BD4DCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 291090BB2694F89000BD4DCD /* main.m */; };
 		291090C62694F89000BD4DCD /* InstagramAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291090C52694F89000BD4DCD /* InstagramAppTests.m */; };
 		291090D12694F89000BD4DCD /* InstagramAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291090D02694F89000BD4DCD /* InstagramAppUITests.m */; };
+		292071682698D60300A8180B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 292071672698D60300A8180B /* DetailsViewController.m */; };
 		294ACEFD269621A200D80FE7 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 294ACEFC269621A200D80FE7 /* Post.m */; };
 		29B3AB3226950710006CB17A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B3AB3126950710006CB17A /* LoginViewController.m */; };
 		29B3AB3526951437006CB17A /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B3AB3426951437006CB17A /* FeedViewController.m */; };
@@ -60,6 +61,8 @@
 		291090CC2694F89000BD4DCD /* InstagramAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		291090D02694F89000BD4DCD /* InstagramAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramAppUITests.m; sourceTree = "<group>"; };
 		291090D22694F89000BD4DCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		292071662698D60300A8180B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		292071672698D60300A8180B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		294ACEFB269621A200D80FE7 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		294ACEFC269621A200D80FE7 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		29B3AB3026950710006CB17A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				29B3AB4026957EE1006CB17A /* ComposeViewController.m */,
 				294ACEFB269621A200D80FE7 /* Post.h */,
 				294ACEFC269621A200D80FE7 /* Post.m */,
+				292071662698D60300A8180B /* DetailsViewController.h */,
+				292071672698D60300A8180B /* DetailsViewController.m */,
 			);
 			path = InstagramApp;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				294ACEFD269621A200D80FE7 /* Post.m in Sources */,
 				291090BC2694F89000BD4DCD /* main.m in Sources */,
 				29B3AB4126957EE1006CB17A /* ComposeViewController.m in Sources */,
+				292071682698D60300A8180B /* DetailsViewController.m in Sources */,
 				291090AE2694F88E00BD4DCD /* SceneDelegate.m in Sources */,
 				29B3AB3226950710006CB17A /* LoginViewController.m in Sources */,
 			);

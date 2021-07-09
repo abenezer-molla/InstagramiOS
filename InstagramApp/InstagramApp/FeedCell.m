@@ -34,8 +34,13 @@
     self.feedUsernameCaption.text = user.username;
     self.profileNameTimeline.text = user.username;
     
+    self.dateStamp.text = [NSDateFormatter localizedStringFromDate:post.createdAt dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    
 
 }
+
+
+
 
 
 @end
