@@ -45,7 +45,7 @@
     
     [self refreshData2];
     
-    [self setSomePost];
+    
 
     // Do any additional setup after loading the view.
 }
@@ -72,6 +72,7 @@
         if (posts) {
             // do something with the data fetched
             self.feedDetail = posts;
+            [self setSomePost];
             
            // [self.tableView insertSubview:self.refreshControl atIndex:0];
             NSLog(@" Self Detail is this -->%@", self.feedDetail);
@@ -84,6 +85,7 @@
         }
     }];
     
+
     
 
 
