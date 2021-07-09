@@ -399,7 +399,7 @@
         <!--Profile-->
         <scene sceneID="4Be-j4-sEh">
             <objects>
-                <viewController id="tg3-kE-2Mp" sceneMemberID="viewController">
+                <viewController id="tg3-kE-2Mp" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s4D-4T-T3C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -460,7 +460,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill.badge.questionmark" catalog="system" highlightedImage="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-WH-TZh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill.badge.questionmark" catalog="system" highlightedImage="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-WH-TZh" customClass="PFImageView">
                                 <rect key="frame" x="4.5" y="92" width="146" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -469,6 +469,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="zEJ-94-xrQ"/>
+                    <connections>
+                        <outlet property="ProfilePageUsername" destination="1fv-w7-hMR" id="T2c-f2-4cW"/>
+                        <outlet property="profilePageImage" destination="F6j-WH-TZh" id="e1B-lZ-sLg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwG-wV-AtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

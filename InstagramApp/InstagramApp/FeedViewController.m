@@ -134,6 +134,7 @@
     postQuery.limit = 20;
 
     // fetch data asynchronously
+    [self.tableView reloadData];
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
         if (posts) {
             // do something with the data fetched
@@ -147,24 +148,8 @@
                         NSLog(@"%@", error.localizedDescription);
         }
     }];
-//
-//    // construct query
-//    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-//    [query includeKey:@"username"];
-//    //[query whereKey:@"likesCount" greaterThanOrEqualTo:@0];
-//    query.limit = 20;
-//    [query orderByDescending:@"createdAt"];
-//
-//    // fetch data asynchronously
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-//        if (posts != nil) {
-//
+    [self.tableView reloadData];
 
-//            // do something with the array of object returned by the call
-//        } else {
-
-//        }
-//    }];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
