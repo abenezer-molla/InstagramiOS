@@ -160,6 +160,8 @@
     Post *post = self.feeds[indexPath.row];
     //NSLog(@"%@", post);
     [cell setPost:post];
+   // [self.tableView reloadData];
+    
     
     
     

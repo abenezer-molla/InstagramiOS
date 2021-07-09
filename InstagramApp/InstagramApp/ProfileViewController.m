@@ -45,10 +45,7 @@
     
     [self refreshData2];
     
-
-
-    
-    
+    [self setSomePost];
 
     // Do any additional setup after loading the view.
 }
@@ -66,13 +63,19 @@
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
+    
+    [postQuery includeKey:@"objectId"];
     postQuery.limit = 20;
 
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
         if (posts) {
             // do something with the data fetched
-                        self.feedDetail = posts;
+            self.feedDetail = posts;
+            
+           // [self.tableView insertSubview:self.refreshControl atIndex:0];
+            NSLog(@" Self Detail is this -->%@", self.feedDetail);
+            
         }
         else {
             // handle error
@@ -80,23 +83,33 @@
                         NSLog(@"%@", error.localizedDescription);
         }
     }];
+    
+    
+
+
 
 }
 
+- (void) setSomePost{
+    
+    Post *post = self.feedDetail.firstObject;
 
-
-- (void)setPost:(Post *)post {
-    NSLog(@"%@", post);
-    //self.post = post;
     self.ProfilePageUsername.text = post.author.username;
     self.profilePageImage.file = post.image;
     
-    [self.profilePageImage loadInBackground];
+    
+}
+
+
+
 
     
 
 
-}
+
+
+
+
 
 /*
 #pragma mark - Navigation
