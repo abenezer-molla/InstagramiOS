@@ -25,10 +25,16 @@
     NSLog(@"%@", post);
     //self.post = post;
     self.photoImageView.file = post.image;
+    self.profilePictureTimeline.file = post.image;
+    
     [self.photoImageView loadInBackground];
     self.feedCaptionLabel.text = post.caption;
+    
     PFUser *user = post.author;
     self.feedUsernameCaption.text = user.username;
+    self.profileNameTimeline.text = user.username;
+    
+
 }
 
 
